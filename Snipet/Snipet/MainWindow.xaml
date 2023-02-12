@@ -1,0 +1,44 @@
+﻿<Window x:Class="Snipet.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Snipet"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="185*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="256*"/>
+            <ColumnDefinition Width="399*"/>
+            <ColumnDefinition Width="145*"/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"></RowDefinition>
+                <RowDefinition Height="20*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ComboBox x:Name="cbSnipetType">
+                <ComboBoxItem Name="Property" IsSelected="True">Property</ComboBoxItem>
+                <ComboBoxItem Name="DelegeCommnad">Delegate Command</ComboBoxItem>
+            </ComboBox>
+            <!--
+            <RadioButton GroupName="grpWhat" Content="Property" IsChecked="True"></RadioButton>
+            <RadioButton Grid.Column="1" GroupName="grpWhat" Content="DelegateCommand"></RadioButton>
+            -->
+            <Button Grid.Row="1" Click="Button_Click">Run And Copy</Button>
+        </Grid>
+        
+        <TextBox x:Name="txtBaseName" Grid.Column="1" Grid.ColumnSpan="1" ></TextBox>
+        <TextBox x:Name="txtType" Grid.Column="2" Grid.ColumnSpan="1" >string</TextBox>
+        <TextBox x:Name="txtCode" Grid.ColumnSpan="3" Margin="0,64,0,0" Grid.RowSpan="2"/>
+
+    </Grid>
+</Window>
