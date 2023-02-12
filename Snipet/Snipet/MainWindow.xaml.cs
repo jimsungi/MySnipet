@@ -91,8 +91,64 @@ namespace Snipet
 ";
             txtCode.Text = oko;
         }
-
         void CreateProperty()
+        {
+            string base_name = txtBaseName.Text;
+            string base_alpha = "_sampleProperty";
+            string base_beta = "SampleProperty";
+            string type_str = txtType.Text;
+            if (string.IsNullOrWhiteSpace(type_str))
+                type_str = "string";
+            if (!string.IsNullOrWhiteSpace(base_name))
+            {
+                string[] words = base_name.Split(' ');
+                for (int i = 0; i < words.Length; i++)
+                {
+                    if (i == 0)
+                    {
+                        base_alpha = "_" + words[i][0].ToString().ToLower() + words[i].Substring(1);
+                        base_beta = words[i][0].ToString().ToUpper() + words[i].Substring(1);
+                    }
+                    else
+                    {
+                        base_alpha += words[i][0].ToString().ToUpper() + words[i].Substring(1);
+                        base_beta += words[i][0].ToString().ToUpper() + words[i].Substring(1);
+                    }
+                }
+            }
+
+            string oko = "";
+            
+            if (type_str == "string")
+            {
+
+                oko = @"
+        private " + type_str + "? " + base_alpha + @";
+        public " + type_str + " " + base_beta + @"
+        {
+            get => " + base_alpha + @"??="""";
+            set => SetProperty(ref " + base_alpha + @",value);
+        }
+";
+            }
+            else
+            {
+
+                oko = @"
+        private " + type_str + "? " + base_alpha + @";
+        public " + type_str + " " + base_beta + @"
+        {
+            get => return " + base_alpha + @";
+            set => SetProperty(ref " + base_alpha + @",value);
+        }
+";
+            }
+
+            txtCode.Text = oko;
+        }
+
+
+        void CreatePropertyV1()
         {
             string base_name = txtBaseName.Text;
             string base_alpha = "_sampleProperty";
