@@ -1,2 +1,2 @@
 # MySnipet
-Snipet Tool for personal use (only for my habbit) 
+Snipet Tool for personal use (only for my hobby) 
